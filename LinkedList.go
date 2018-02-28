@@ -34,7 +34,7 @@ func main(){
 	fmt.Printf("Length: %v\n", list.length)
 	fmt.Printf("First: %v\n", list.firstNode)
 	fmt.Printf("Second: %v\n", list.firstNode.next)
-	
+	fmt.Println("-------------------")
 	n3 := Node{
 		pos:3,
 		data: 1999,
@@ -43,8 +43,10 @@ func main(){
 	list.Append(&n3)
 	
 	fmt.Printf("Length: %v\n", list.length)
+	fmt.Printf("First: %v\n", list.firstNode)
+	fmt.Printf("Second: %v\n", list.firstNode.next)
 	fmt.Printf("Third: %v\n", list.firstNode.next.next)
-	
+	fmt.Println("-------------------")
 	n4 := Node{
 		pos:2,
 		data: 1998,
@@ -54,8 +56,18 @@ func main(){
 
 	fmt.Printf("Length: %v\n", list.length)
 	fmt.Printf("Third: %v\n", list.firstNode.next.next)
+	fmt.Println("-------------------")
+	//print data from all nodes
+	list.PrintAll()
 
-	//loop through list and print each node's data
+	//remove node at pos 1
+	fmt.Println("-------------------")
+	list.Remove(1)
+	list.PrintAll()
+}
+
+//loop through list and print each node's data
+func (list *List) PrintAll(){
 	node := list.firstNode
 	for node != nil {
 		fmt.Printf("%v\n", node.data)
